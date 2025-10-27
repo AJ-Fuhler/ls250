@@ -24,7 +24,7 @@ console.log(findMajority([5, 5, 5]) === 5);
 - hash table to store elements and their counts
 
 -------------------- Algorithm ---------------------
-(brute-force):
+(optimized):
 1. create an empty hash table
 2. for each element in the input array:
      - if a key exists that matches the element:
@@ -40,7 +40,7 @@ console.log(findMajority([5, 5, 5]) === 5);
 
 */
 
-// brute-force approach:
+// optimized approach:
 
 function findMajority(nums) {
   let numCount = {};
