@@ -8,7 +8,6 @@ function checkTripleMatch(nums) {
       return true;
     } else if (product < nums[runner]) {
       anchor++;
-      runner++;
     } else {
       runner++;
     }
