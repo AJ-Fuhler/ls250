@@ -1,0 +1,12 @@
+console.log(longestSubstringLength("a") === 1);
+console.log(longestSubstringLength("aa") === 1);
+console.log(longestSubstringLength("ab") === 2);
+console.log(longestSubstringLength("abba") === 2);
+console.log(longestSubstringLength("abc") === 3);
+console.log(longestSubstringLength("helloworld") === 5);
+console.log(longestSubstringLength("dvdf") === 3);
+console.log(longestSubstringLength("tmmzuxt") === 5);
+console.log(longestSubstringLength("thisishowwedoit") === 6);
+console.log(longestSubstringLength("longestsubstring") === 8);
+console.log(longestSubstringLength("aabbccddeffghijklmno") === 10);
+console.log(longestSubstringLength("abcdefghijklmnopqrstuvwxyz") === 26);
