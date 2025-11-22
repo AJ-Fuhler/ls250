@@ -1,48 +1,13 @@
-// Write a function `findMax` that finds the maximum element in
-// a rotated sorted array.
-
-// A rotated sorted array is an array that was originally sorted
-// in ascending order, but has been rotated (shifted) by some
-// number of positions. The function should take an array of
-// integers as input, representing the rotated sorted array,
-// and it should return the maximum element in the array.
-// The array is guaranteed to have at least one element.
-
-// The solution should be in O(logN) time complexity.
-
-// Example:
-// Input: nums = [8, 9, 10, 2, 5, 6]
-// Output: 10
-// Explanation: The original sorted array [2, 5, 6, 8, 9, 10]
-//              was rotated 3 times.
-
-function findMax(nums) {
-  let left = 0;
-  let right = nums.length - 1;
-  let firstNum = nums[0];
-
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
-    const midNumber = nums[mid];
-
-    if ((mid === 0 || nums[mid - 1] < midNumber) && (mid === nums.length - 1 || nums[mid + 1] < midNumber)) {
-      return midNumber;
-    } else if (midNumber < firstNum) {
-      right = mid - 1;
-    } else {
-      left = mid + 1;
-    }
-  }
-}
-
-console.log(findMax([8, 9, 10, 2, 5, 6]) === 10);
-console.log(findMax([15, 18, 2, 3, 6, 12]) === 18);
-console.log(findMax([7, 8, 2, 3, 4, 5, 6]) === 8);
-console.log(findMax([3, 1]) === 3);
-console.log(findMax([5]) === 5);
-console.log(findMax([9, 10, 11, 12, 13, 14, 15, 1, 2, 3]) === 15);
-console.log(findMax([4, 5, 1, 2, 3]) === 5);
-console.log(findMax([23, 34, 38, 40, 41, 14, 15, 16, 17, 18, 19, 20, 21]) === 41);
-console.log(findMax([100, 200, 300, 400, 500]) === 500);
-console.log(findMax([45, 47, 49, 51, 53, 55, 57, 59, 61, 63, 44]) === 63);
-console.log(findMax([11, 13, 15, 17, 19, 21, 1, 3, 5, 7, 9]) === 21);
+console.log(findTruckCapacity([6, 3, 8, 2, 5, 4, 7], 3)) // === 15);
+console.log(findTruckCapacity([3, 2, 5, 8, 4], 3) === 10);
+console.log(findTruckCapacity([1, 2, 3, 4, 5], 1) === 15);
+console.log(findTruckCapacity([10, 20, 30, 40, 50], 5) === 50);
+console.log(findTruckCapacity([5, 5, 5, 5, 5], 2) === 15);
+console.log(findTruckCapacity([7, 3, 9, 4, 2, 8, 6], 2) === 20);
+console.log(findTruckCapacity([100], 1) === 100);
+console.log(findTruckCapacity([1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 3) === 4);
+console.log(findTruckCapacity([10, 20, 30, 40, 50], 2) === 90);
+console.log(findTruckCapacity([50, 40, 30, 20, 10], 3) === 60);
+console.log(findTruckCapacity([5, 10, 15, 20, 25], 1) === 75);
+console.log(findTruckCapacity([3, 2, 4, 1, 5], 10) === 5);
+console.log(findTruckCapacity([1000, 1000, 1000, 1000], 3) === 2000);

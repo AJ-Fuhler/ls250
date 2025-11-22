@@ -1,0 +1,1 @@
+console.log(maxTreasure(grid5) === 21);

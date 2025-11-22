@@ -23,9 +23,42 @@
 // Trip 2: 8 + 2 = 10 cubic meters
 // Trip 3: 5 + 4 + 5 = 14 cubic meters
 
-function findTruckCapacity(orderVolumes, maxTrips) {
+function canTransport(capacity, orderVolumes, maxTrips) {
+  let currVolume = 0;
+  let idx = 0;
+  let tripsLeft = maxTrips;
 
+  while (idx < orderVolumes.length && tripsLeft > 0) {
+    if (currVolume + orderVolumes[idx] <= capacity) {
+      currVolume += orderVolumes[idx];
+      idx++;
+    } else {
+      currVolume = 0;
+      tripsLeft--;
+    }
+  }
+
+  return idx === orderVolumes.length;
 }
+
+
+
+function findTruckCapacity(orderVolumes, maxTrips) {
+  let left = 1;
+  let right = orderVolumes.reduce((accum, currVolume) => currVolume + accum, 0);
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+    if (canTransport(mid, orderVolumes, maxTrips)) {
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+
+  return left;
+}
+
 
 console.log(findTruckCapacity([6, 3, 8, 2, 5, 4, 7], 3) === 15);
 console.log(findTruckCapacity([3, 2, 5, 8, 4], 3) === 10);
